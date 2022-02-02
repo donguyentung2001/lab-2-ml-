@@ -68,6 +68,7 @@ def run_experiments(X : list, y : list, classifiers : list, num_training_example
         #plot = sns.scatterplot(data=all_accuracies.transpose())
         print(all_accuracies.head())
     plt.show()
+    return y_pred
 
 
 def plot_confusion_matrix(matrix):
@@ -94,7 +95,7 @@ if __name__ == "__main__":
     classifiers.append(lr)
     classifiers.append(gnb)
 
-    run_experiments(X, y, classifiers, num_training_examples)
+    y_pred = run_experiments(X, y, classifiers, num_training_examples)
     plt.show()
     plot_confusion_matrix(y_test, y_pred)
     print("Done.")
